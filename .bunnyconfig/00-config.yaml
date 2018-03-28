@@ -1,10 +1,31 @@
 exec_once:
+ files:
+  /tmp/response.varfile:
+    name: response.varfile
+    path: /tmp/
+    mode: "0644"
+    owner: root
+    group: root
+    content: |
+      #install4j response file for JIRA Software 7.8.1
+      launch.application$Boolean=true
+      rmiPort$Long=8005
+      app.jiraHome=/var/atlassian/application-data/jira
+      app.install.service$Boolean=true
+      existingInstallationDir=/opt/JIRA Software
+      sys.confirmedUpdateInstallationString=false
+      sys.languageId=en
+      sys.installationDir=/opt/atlassian/jira
+      executeLauncherAction$Boolean=true
+      httpPort$Long=8080
+      portChoice=default
  execs:
   Install Jira:
    name: Install Jira
    timeout: "2000"
    command: |
      #!/usr/bin/env bash
+     varfile='tmp/response.varfile'
      wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.8.1-x64.bin -P /tmp
      chmod a+x /tmp/atlassian-jira-software-7.8.1-x64.bin
-     # /tmp/atlassian-jira-software-X.X.X-x64.bin
+     /tmp/atlassian-jira-software-X.X.X-x64.bin -q -varfile ${varfile}
