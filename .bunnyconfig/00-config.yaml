@@ -28,4 +28,4 @@ exec_once:
      varfile='tmp/response.varfile'
      wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.8.1-x64.bin -P /tmp
      chmod a+x /tmp/atlassian-jira-software-7.8.1-x64.bin
-     /tmp/atlassian-jira-software-X.X.X-x64.bin -q -varfile ${varfile}
+     /tmp/atlassian-jira-software-7.8.1-x64.bin -q -varfile ${varfile}
