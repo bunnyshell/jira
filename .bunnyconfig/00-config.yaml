@@ -1,0 +1,10 @@
+exec_once:
+ execs:
+  Install Jira:
+   name: Install Jira
+   timeout: "2000"
+   command: |
+     #!/usr/bin/env bash
+     wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.8.1-x64.bin -P /tmp
+     chmod a+x /tmp/atlassian-jira-software-7.8.1-x64.bin
+     # /tmp/atlassian-jira-software-X.X.X-x64.bin
